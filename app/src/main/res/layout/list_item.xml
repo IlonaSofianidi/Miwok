@@ -5,24 +5,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="horizontal">
     <ImageView
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="@dimen/list_item_height"
+        android:layout_height="@dimen/list_item_height"
         android:id="@+id/image_view"/>
     <LinearLayout
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:id="@+id/tetx_container"
         android:layout_weight="1"
+        android:layout_height="match_parent"
         android:orientation="vertical"
         android:paddingLeft="16dp">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
             android:id="@+id/english_textView"
+            android:layout_weight="1"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             tools:text="one"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:layout_weight="1"
             tools:text="odun"
             android:id="@+id/miwok_translation"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>

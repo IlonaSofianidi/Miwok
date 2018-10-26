@@ -24,7 +24,7 @@ public class PhrasesActivity extends Activity {
         words.add(new Word("I’m coming.", "әәnәm"));
         words.add(new Word("Let’s go.", "yoowutis"));
         words.add(new Word("Come here.", "әnni'nem"));
-        WordsAdapter wordsAdapter = new WordsAdapter(this,R.layout.list_item,words);
+        WordsAdapter wordsAdapter = new WordsAdapter(this, R.layout.list_item, words, R.color.category_phrases);
         ListView listView = (ListView)findViewById(R.id.list_words);
         listView.setAdapter(wordsAdapter);
     }
