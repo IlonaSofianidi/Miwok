@@ -42,6 +42,7 @@ public class WordsAdapter extends ArrayAdapter<Word> {
 
 
             holder = new WordHolder();
+
             holder.english_textView = (TextView) listItemView.findViewById(R.id.english_textView);
             holder.mivok_textView = (TextView) listItemView.findViewById(R.id.miwok_translation);
             holder.imageView = (ImageView) listItemView.findViewById(R.id.image_view);
@@ -52,18 +53,21 @@ public class WordsAdapter extends ArrayAdapter<Word> {
             holder = (WordHolder) listItemView.getTag();
         }
         Word word = words_list.get(position);
+
         holder.english_textView.setText(word.getEnglish_translation());
         holder.mivok_textView.setText(word.getMiwok_translation());
         if (word.hasImage()) {
             holder.imageView.setImageResource(word.getImage_resource_id());
+            holder.imageView.setBackgroundColor(listItemView.getResources().getColor(R.color.tan_background));
             Log.d("WordAdapter", "word has an image");
             //holder.imageView.setBackgroundColor(listItemView.getResources().getColor(R.color.tan_background));
         } else {
             holder.imageView.setVisibility(View.GONE);
             Log.d("WordAdapter", "word has not image");
         }
-        View textContainer = listItemView.findViewById(R.id.tetx_container);
-        textContainer.setBackgroundColor(listItemView.getResources().getColor(color));
+        View parent_layout = listItemView.findViewById(R.id.parent_linear_layout_list_item);
+        parent_layout.setBackgroundColor(listItemView.getResources().getColor(color));
+
 
         return listItemView;
     }
