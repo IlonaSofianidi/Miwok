@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.support.v4.app.NavUtils;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -48,7 +50,7 @@ public class NumbersActivity extends Activity {
         setContentView(R.layout.word_list);
 
         audioManager = (AudioManager) this.getSystemService(AUDIO_SERVICE);
-
+        getActionBar().setDisplayHomeAsUpEnabled(true);
 
         ArrayList<Word> words = new ArrayList<Word>();
         words.add(new Word("one", "lutti", R.drawable.number_one, R.raw.number_one));
@@ -86,10 +88,22 @@ public class NumbersActivity extends Activity {
 
     }
 
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                NavUtils.navigateUpFromSameTask(this);
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
     @Override
     protected void onStop() {
         super.onStop();
         releaseMediaPlayer();
+
     }
 
     private void releaseMediaPlayer() {
