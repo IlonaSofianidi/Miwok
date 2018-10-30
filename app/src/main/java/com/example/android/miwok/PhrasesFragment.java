@@ -1,10 +1,11 @@
 package com.example.android.miwok;
 
 
-import android.app.Fragment;
+
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -88,7 +89,7 @@ public class PhrasesFragment extends Fragment {
         words.add(new Word("Come here.", "әnni'nem", R.raw.phrase_come_here));
 
         audioManager = (AudioManager) getActivity().getSystemService(AUDIO_SERVICE);
-        WordsAdapter wordsAdapter = new WordsAdapter(getActivity(), R.layout.list_item, words, R.color.category_family);
+        WordsAdapter wordsAdapter = new WordsAdapter(getActivity(), R.layout.list_item, words, R.color.category_phrases);
         listView.setAdapter(wordsAdapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
